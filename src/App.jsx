@@ -11,11 +11,11 @@ import { Footer } from './components/Footer';
 function App() {
   return (
       <div className='App' style={styles.appContainer}>
-        <div id='inicio'>
+        <div id='sobre-mi'>
           <Header />
         </div>
         <main style={styles.mainContent}>
-          <div id='sobre-mi'>  
+          <div>  
             <AboutMe />
           </div>
 

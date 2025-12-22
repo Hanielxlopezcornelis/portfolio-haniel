@@ -6,7 +6,6 @@ export const Header = () => {
         </div>
         <nav>
             <ul style={styles.navUl}>
-                <li style={styles.navLi}><a href="#inicio" style={styles.link}>Home</a></li>
                 <li style={styles.navLi}><a href="#sobre-mi" style={styles.link}>About Me</a></li>
                 <li style={styles.navLi}><a href="#proyectos" style={styles.link}>Projects</a></li>
                 <li style={styles.navLi}><a href="#educacion" style={styles.link}>Education</a></li>
