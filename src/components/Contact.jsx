@@ -1,6 +1,6 @@
 export const Contact = () => {
   return (
-    <section style={styles.contactSection} id="contacto">
+    <section style={styles.contactSection}>
       <div style={styles.container}>
         
         <h2 style={styles.sectionTitle}>Contacto</h2>

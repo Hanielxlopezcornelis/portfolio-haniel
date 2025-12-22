@@ -20,7 +20,7 @@ export const Projects = () => {
   ]
 
   return (
-    <section style={styles.projectsSection} id="proyectos">
+    <section style={styles.projectsSection}>
       <div style={styles.container}>
         <h2 style={styles.sectionTitle}>Proyectos Destacados</h2>
         

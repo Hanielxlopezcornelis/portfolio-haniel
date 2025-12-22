@@ -2,14 +2,18 @@ export const Header = () => {
   return (
     <header style={styles.header}>
         <div style={styles.logoContainer}>
+          <a href="#inicio" style={{ textDecoration: 'none' }}>
             <h1 style={styles.logoText}>Haniel Xuan López Cornelis</h1>
+          </a>
         </div>
         <nav>
             <ul style={styles.navUl}>
-                <li style={styles.navLi}><a href="#sobre-mi" style={styles.link}>About Me</a></li>
-                <li style={styles.navLi}><a href="#proyectos" style={styles.link}>Projects</a></li>
-                <li style={styles.navLi}><a href="#educacion" style={styles.link}>Education</a></li>
-                <li style={styles.navLi}><a href="#contacto" style={styles.link}>Contact</a></li>
+                <li style={styles.navLi}><a href="#sobre-mi" style={styles.link}>Sobre Mi</a></li>
+                <li style={styles.navLi}><a href="#experiencia" style={styles.link}>Experiencia</a></li>
+                <li style={styles.navLi}><a href="#educacion" style={styles.link}>Educacion</a></li>
+                <li style={styles.navLi}><a href="#habilidades" style={styles.link}>Habilidades</a></li>
+                <li style={styles.navLi}><a href="#proyectos" style={styles.link}>Proyectos</a></li>
+                <li style={styles.navLi}><a href="#contacto" style={styles.link}>Contacto</a></li>
             </ul>
         </nav>
     </header>

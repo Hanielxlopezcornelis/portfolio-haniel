@@ -10,19 +10,19 @@ import { Footer } from './components/Footer';
 
 function App() {
   return (
-      <div className='App' style={styles.appContainer}>
-        <div id='sobre-mi'>
+      <div className='App' style={styles.appContainer} id='inicio'>
+        <div>
           <Header />
         </div>
         <main style={styles.mainContent}>
-          <div>  
+          <div id='sobre-mi'>  
             <AboutMe />
           </div>
 
           <div id='experiencia'>
             <Experience />
           </div>
-        
+
           <div id='educacion'>
             <Education />
           </div>
