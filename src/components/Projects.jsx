@@ -4,9 +4,9 @@ export const Projects = () => {
     {
       id: 1,
       title: "Juego de Cartas: Truco",
-      description: "Implementación completa del clásico juego argentino en C++. Incluye lógica de envido, truco, gestión de turnos y barajado aleatorio. Proyecto final para Algoritmos y Programación 1.",
+      description: "Desarrollo en C++ que simula una partida contra una Inteligencia Artificial. Implementé un 'Bot Estratégico' con algoritmos de decisión para desafiar al usuario. El sistema gestiona la lógica de turnos, validación de reglas y estados del juego en consola.",
       tech: ["C++", "CodeBlocks", "Lógica de Algoritmos"],
-      link: "https://github.com", 
+      link: "https://github.com/Hanielxlopezcornelis/truco-cpp-game.git", 
       status: "Finalizado"
     },
     {
@@ -14,7 +14,7 @@ export const Projects = () => {
       title: "Portfolio Profesional",
       description: "Plataforma web personal para exhibición de trayectoria y habilidades. Diseño responsivo con arquitectura de componentes reutilizables.",
       tech: ["React", "Vite", "JavaScript", "CSS-in-JS"],
-      link: "https://github.com",
+      link: "https://github.com/Hanielxlopezcornelis/portfolio-haniel.git",
       status: "En desarrollo"
     }
   ]
