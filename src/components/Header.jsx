@@ -23,8 +23,8 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '1.2rem 2rem',
-    backgroundColor: '#1a1a1a', // Color oscuro de fondo
-    position: 'fixed', // Barra fija arriba
+    backgroundColor: '#1a1a1a', 
+    position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
@@ -37,7 +37,7 @@ const styles = {
     alignItems: 'center',
   },
   logoText: {
-    color: '#61dafb', // Azul React
+    color: '#61dafb', 
     margin: 0,
     fontSize: '1.5rem',
     fontFamily: 'Arial, sans-serif',
@@ -45,7 +45,7 @@ const styles = {
   navUl: {
     display: 'flex',
     listStyle: 'none',
-    gap: '2rem', // Espacio entre los links
+    gap: '2rem', 
     margin: 0,
     padding: 0,
   },
@@ -57,6 +57,8 @@ const styles = {
     color: '#ffffff',
     fontSize: '1rem',
     fontFamily: 'Arial, sans-serif',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    transition: 'color 0.3s',
+    cursor: 'pointer',
   }
 }

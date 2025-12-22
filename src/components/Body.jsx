@@ -63,7 +63,7 @@ export const Body = () => {
   ]
   
   return (
-    <section style={styles.bodyContainer}>
+    <section style={styles.bodyContainer} id="inicio">
       
       <div style={styles.heroSection}>
         <h1 style={styles.title}>
@@ -80,7 +80,7 @@ export const Body = () => {
         
         <div style={styles.buttonContainer}>
           <button style={styles.primaryButton}>Descargar CV</button>
-          <button style={styles.secondaryButton}>Contactar</button>
+          <button href="#contacto" style={styles.secondaryButton}>Contactar</button>
         </div>
       </div>
 
@@ -194,13 +194,15 @@ const styles = {
   },
   secondaryButton: {
     padding: '10px 25px',
-    fontSize: '1rem',
     backgroundColor: 'transparent',
     color: '#61dafb',
     border: '2px solid #61dafb',
     borderRadius: '5px',
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
     cursor: 'pointer',
-    fontWeight: 'bold'
+    textDecoration: 'none',
+    transition: 'all 0.3s',
   },
   sectionContainer: {
     width: '100%',

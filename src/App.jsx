@@ -7,12 +7,20 @@ import { Footer } from './components/Footer';
 
 function App() {
   return (
-      <div style={styles.appContainer}>
-        <Header />
+      <div className='App' style={styles.appContainer}>
+        <div id='inicio'>
+          <Header />
+        </div>
         <main style={styles.mainContent}>
+          <div id='sobre-mi'>  
           <Body />
+          </div>
+          <div id='proyectos'>
           <Projects />
+          </div>
+          <div id='contacto'>
           <Contact />
+          </div>
         </main>
         <Footer />
       </div>
