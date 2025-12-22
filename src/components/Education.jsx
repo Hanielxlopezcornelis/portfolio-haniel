@@ -53,7 +53,10 @@ const styles = {
   timeline: {
     position: 'relative',
     paddingLeft: '30px',
-    borderLeft: '3px solid #61dafb'
+    background: 'linear-gradient(to bottom, transparent 12px, #61dafb 12px)', 
+    backgroundSize: '3px 100%',     
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'left top',
   },
   timelineItem: {
     marginBottom: '3rem', 
@@ -62,7 +65,7 @@ const styles = {
   timelineDot: {
     position: 'absolute',
     left: '-39px', 
-    top: '0',
+    top: '5px',      
     width: '15px',
     height: '15px',
     backgroundColor: '#1a1a1a',
