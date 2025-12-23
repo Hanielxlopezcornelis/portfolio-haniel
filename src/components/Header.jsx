@@ -1,19 +1,50 @@
+import React, { useState, useEffect } from 'react';
+
 export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (!mobile) setIsOpen(false); 
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const currentNavStyle = isMobile 
+    ? { ...styles.navUl, ...styles.mobileNav, ...(isOpen ? styles.mobileNavOpen : styles.mobileNavClosed) }
+    : styles.navUl;
   return (
     <header style={styles.header}>
         <div style={styles.logoContainer}>
           <a href="#inicio" style={{ textDecoration: 'none' }}>
-            <h1 style={styles.logoText}>Haniel Xuan López Cornelis</h1>
+            <h1 style={styles.logoText}>HXLC</h1>
           </a>
         </div>
-        <nav>
-            <ul style={styles.navUl}>
-                <li style={styles.navLi}><a href="#sobre-mi" style={styles.link}>Sobre Mi</a></li>
-                <li style={styles.navLi}><a href="#experiencia" style={styles.link}>Experiencia</a></li>
-                <li style={styles.navLi}><a href="#educacion" style={styles.link}>Educacion</a></li>
-                <li style={styles.navLi}><a href="#habilidades" style={styles.link}>Habilidades</a></li>
-                <li style={styles.navLi}><a href="#proyectos" style={styles.link}>Proyectos</a></li>
-                <li style={styles.navLi}><a href="#contacto" style={styles.link}>Contacto</a></li>
+
+        
+
+        <nav style={styles.navContainer}>
+          {isMobile && (
+            <button style={styles.hamburger} onClick={toggleMenu}>
+                <span style={styles.bar}></span>
+                <span style={styles.bar}></span>
+                <span style={styles.bar}></span>
+            </button>
+          )}
+
+            <ul style={currentNavStyle}>
+                <li style={styles.navLi}><a href="#sobre-mi" style={styles.link} onClick={toggleMenu}>Sobre Mi</a></li>
+                <li style={styles.navLi}><a href="#experiencia" style={styles.link} onClick={toggleMenu}>Experiencia</a></li>
+                <li style={styles.navLi}><a href="#educacion" style={styles.link} onClick={toggleMenu}>Educacion</a></li>
+                <li style={styles.navLi}><a href="#habilidades" style={styles.link} onClick={toggleMenu}>Habilidades</a></li>
+                <li style={styles.navLi}><a href="#proyectos" style={styles.link} onClick={toggleMenu}>Proyectos</a></li>
+                <li style={styles.navLi}><a href="#contacto" style={styles.link} onClick={toggleMenu}>Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -38,6 +69,7 @@ const styles = {
   logoContainer: {
     display: 'flex',
     alignItems: 'center',
+    zIndex: 1001,
   },
   logoText: {
     color: '#61dafb', 
@@ -45,12 +77,18 @@ const styles = {
     fontSize: '1.5rem',
     fontFamily: 'Arial, sans-serif',
   },
+  navContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end', 
+  },
   navUl: {
     display: 'flex',
     listStyle: 'none',
     gap: '2rem', 
     margin: 0,
     padding: 0,
+    transition: 'all 0.3s ease-in-out',
   },
   navLi: {
     margin: 0,
@@ -63,5 +101,40 @@ const styles = {
     fontWeight: '500',
     transition: 'color 0.3s',
     cursor: 'pointer',
+  },
+  hamburger: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    width: '30px',
+    height: '21px',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    zIndex: 1002,
+    padding: 0,
+  },
+  bar: {
+    width: '100%',
+    height: '3px',
+    backgroundColor: '#61dafb',
+    borderRadius: '3px',
+  },
+  mobileNav: {
+    position: 'absolute',
+    top: '70px',
+    left: 0,
+    width: '100%',
+    backgroundColor: '#1a1a1a',
+    flexDirection: 'column', 
+    alignItems: 'center',
+    padding: '2rem 0',
+    boxShadow: '0 10px 10px rgba(0,0,0,0.2)',
+  },
+  mobileNavClosed: {
+    display: 'none',
+  },
+  mobileNavOpen: {
+    display: 'flex',
   }
 }
