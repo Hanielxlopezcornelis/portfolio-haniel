@@ -1,12 +1,33 @@
+import React, { useState, useEffect } from 'react';
+
 export const Footer = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const currentContainer = isMobile 
+        ? { ...styles.container, ...styles.mobileContainer } 
+        : styles.container;
+        
+    const currentRightSection = isMobile 
+        ? { ...styles.rightSection, ...styles.mobileSectionCentered } 
+        : styles.rightSection;
+
+    const currentLeftSection = isMobile
+        ? { ...styles.leftSection, ...styles.mobileSectionCentered }
+        : styles.leftSection;
     return (
         <footer style={styles.footer}>
-            <div style={styles.container}>
+            <div style={currentContainer}>
                 <div style={styles.leftSection}>
                     <h3 style={styles.name}>Haniel Xuan</h3>
                     <p style={styles.copy}>© {new Date().getFullYear()} - Todos los derechos reservados.</p>
                 </div>
-            <div style={styles.rightSection}>
+            <div style={currentRightSection}>
                 <p style={styles.connectText}>Conectemos:</p>
                 <div style={styles.links}>
                     <a href="https://www.linkedin.com/in/haniel-xuan-lopez-cornelis-dwfe/" target="_blank" rel="noopener noreferrer" style={styles.link}>LinkedIn</a>
@@ -21,10 +42,10 @@ export const Footer = () => {
 
 const styles = {
   footer: {
-    backgroundColor: '#1a1a1a', // Mismo color que el Header
+    backgroundColor: '#1a1a1a', 
     color: '#ffffff',
     padding: '2rem 0',
-    marginTop: 'auto', // Ayuda a que se empuje al fondo
+    marginTop: 'auto', 
     borderTop: '1px solid #333',
   },
   container: {
@@ -34,7 +55,7 @@ const styles = {
     maxWidth: '1000px',
     margin: '0 auto',
     padding: '0 2rem',
-    flexWrap: 'wrap', // Para que se adapte en celulares
+    flexWrap: 'wrap', 
     gap: '1rem',
   },
   leftSection: {
@@ -44,7 +65,7 @@ const styles = {
   name: {
     margin: 0,
     fontSize: '1.2rem',
-    color: '#61dafb', // Azul React
+    color: '#61dafb', 
   },
   copy: {
     margin: '5px 0 0 0',
@@ -54,7 +75,7 @@ const styles = {
   rightSection: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end', // Alineado a la derecha
+    alignItems: 'flex-end', 
   },
   connectText: {
     margin: '0 0 5px 0',
@@ -70,6 +91,16 @@ const styles = {
     textDecoration: 'none',
     fontSize: '0.95rem',
     transition: 'color 0.3s',
+  },
+  mobileContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+    gap: '2rem',
+  },
+  mobileSectionCentered: {
+    alignItems: 'center', 
+    width: '100%',
   }
 }
 
