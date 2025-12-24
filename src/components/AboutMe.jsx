@@ -15,8 +15,8 @@ export const AboutMe = () => {
         </p>
         
         <div style={styles.buttonContainer}>
-          <button style={styles.primaryButton}>Descargar CV</button>
-          <button style={styles.secondaryButton}>Contactar</button>
+          <a href="/cv-haniel.pdf" download="CV_Haniel_Xuan_Lopez_Cornelis.pdf" style={styles.primaryButton}>Descargar CV</a>
+          <a href="#contacto" style={styles.secondaryButton}>Contactar</a>
         </div>
       </div>
     </section>
@@ -68,7 +68,9 @@ const styles = {
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    display: 'inline-block'
   },
   secondaryButton: {
     padding: '10px 25px',
@@ -78,6 +80,8 @@ const styles = {
     border: '2px solid #61dafb',
     borderRadius: '5px',
     cursor: 'pointer',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    display: 'inline-block'
   }
 };

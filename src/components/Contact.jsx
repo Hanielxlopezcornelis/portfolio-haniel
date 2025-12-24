@@ -1,6 +1,44 @@
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    mensaje: ''
+  });
+  
+  const [status, setStatus] = useState(''); 
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('enviando');
+
+    try {
+      // ⚠️ IMPORTANTE: Reemplaza "AQUI_TU_CODIGO" por el código que te dio Formspree
+      // Ejemplo: https://formspree.io/f/mqkbrnzw
+      const response = await fetch("https://formspree.io/f/mbdreevr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('exito');
+        setFormData({ nombre: '', email: '', mensaje: '' }); 
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
+  };
+
   return (
-    <section style={styles.contactSection}>
+    <section id="contacto" style={styles.contactSection}>
       <div style={styles.container}>
         
         <h2 style={styles.sectionTitle}>Contacto</h2>
@@ -15,45 +53,85 @@ export const Contact = () => {
             </p>
             
             <div style={styles.contactItem}>
-              <span style={styles.icon}>📧</span>
-              <span>tu-email@ejemplo.com</span>
+              <div style={styles.iconContainer}>
+                <span style={styles.icon}>📧</span>
+              </div>
+              <span>hanielxuanlc@gmail.com</span>
             </div>
             
             <div style={styles.contactItem}>
-              <span style={styles.icon}>📍</span>
+              <div style={styles.iconContainer}>
+                <span style={styles.icon}>📍</span>
+              </div>
               <span>Buenos Aires, Argentina</span>
             </div>
 
             <div style={styles.contactItem}>
-              <span style={styles.icon}>💼</span>
+              <div style={styles.iconContainer}>
+                <span style={styles.icon}>💼</span>
+              </div>
               <span>Disponible para trabajar</span>
             </div>
           </div>
 
-          <form style={styles.formColumn} onSubmit={(e) => e.preventDefault()}>
+          <form style={styles.formColumn} onSubmit={handleSubmit}>
             <div style={styles.formGroup}>
               <label style={styles.label}>Nombre</label>
-              <input type="text" style={styles.input} placeholder="Tu nombre" />
+              <input 
+                type="text" 
+                name="nombre" 
+                value={formData.nombre}
+                onChange={handleChange}
+                style={styles.input} 
+                placeholder="Tu nombre" 
+                required 
+              />
             </div>
             
             <div style={styles.formGroup}>
               <label style={styles.label}>Email</label>
-              <input type="email" style={styles.input} placeholder="tucorreo@ejemplo.com" />
+              <input 
+                type="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                style={styles.input} 
+                placeholder="tucorreo@ejemplo.com" 
+                required 
+              />
             </div>
             
             <div style={styles.formGroup}>
               <label style={styles.label}>Mensaje</label>
-              <textarea style={styles.textarea} rows="5" placeholder="¿En qué puedo ayudarte?"></textarea>
+              <textarea 
+                name="mensaje"
+                value={formData.mensaje}
+                onChange={handleChange}
+                style={styles.textarea} 
+                rows="5" 
+                placeholder="¿En qué puedo ayudarte?"
+                required
+              ></textarea>
             </div>
 
-            <button type="submit" style={styles.button}>Enviar Mensaje</button>
+            <button type="submit" style={styles.button} disabled={status === 'enviando'}>
+              {status === 'enviando' ? 'Enviando...' : 'Enviar Mensaje'}
+            </button>
+
+            {status === 'exito' && (
+              <p style={styles.successMsg}>¡Mensaje enviado con éxito! Te responderé pronto.</p>
+            )}
+            {status === 'error' && (
+              <p style={styles.errorMsg}>Hubo un error al enviar. Intenta nuevamente.</p>
+            )}
           </form>
 
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
+
 
 const styles = {
   contactSection: {
@@ -100,13 +178,23 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '1rem',
-    marginBottom: '1rem',
+    marginBottom: '1.5rem',
     fontSize: '1.1rem',
   },
-  icon: {
-    fontSize: '1.5rem',
+  iconContainer: {
+    width: '50px',            
+    height: '50px',           
+    backgroundColor: '#333',  
+    borderRadius: '50%',      
+    display: 'flex',          
+    justifyContent: 'center', 
+    alignItems: 'center',     
+    flexShrink: 0,            
   },
-  
+  icon: {
+    fontSize: '1.5rem',      
+    lineHeight: 1,            
+  },
   formColumn: {
     flex: '1',
     minWidth: '300px',
@@ -126,7 +214,7 @@ const styles = {
   },
   input: {
     width: '100%',
-    padding: '10px',
+    padding: '12px',
     borderRadius: '5px',
     border: '1px solid #444',
     backgroundColor: '#333',
@@ -136,7 +224,7 @@ const styles = {
   },
   textarea: {
     width: '100%',
-    padding: '10px',
+    padding: '12px',
     borderRadius: '5px',
     border: '1px solid #444',
     backgroundColor: '#333',
@@ -156,6 +244,18 @@ const styles = {
     fontSize: '1.1rem',
     fontWeight: 'bold',
     cursor: 'pointer',
-    transition: 'background-color 0.3s',
+    transition: 'opacity 0.3s',
+  },
+  successMsg: {
+    color: '#4caf50', 
+    marginTop: '1rem', 
+    fontWeight: 'bold', 
+    textAlign: 'center'
+  },
+  errorMsg: {
+    color: '#f44336', 
+    marginTop: '1rem', 
+    fontWeight: 'bold', 
+    textAlign: 'center'
   }
 }
