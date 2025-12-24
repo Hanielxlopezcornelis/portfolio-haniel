@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 export const Contact = () => {
   const [formData, setFormData] = useState({
     nombre: '',
@@ -17,8 +19,6 @@ export const Contact = () => {
     setStatus('enviando');
 
     try {
-      // ⚠️ IMPORTANTE: Reemplaza "AQUI_TU_CODIGO" por el código que te dio Formspree
-      // Ejemplo: https://formspree.io/f/mqkbrnzw
       const response = await fetch("https://formspree.io/f/mbdreevr", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
