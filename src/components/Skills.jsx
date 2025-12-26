@@ -19,7 +19,7 @@ export const Skills = () => {
       <h3 style={styles.sectionTitle}>Habilidades Técnicas</h3>
       <div style={styles.skillsGrid}>
         {skills.map((skillGroup, index) => (
-          <div key={index} style={styles.skillCard}>
+          <div key={index} style={styles.skillCard} className="hover-effect">
             <h4 style={styles.skillCategory}>{skillGroup.category}</h4>
             <div style={styles.tagsContainer}>
               {skillGroup.items.map((item, i) => (

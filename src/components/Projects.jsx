@@ -7,7 +7,7 @@ export const Projects = () => {
       description: "Desarrollo en C++ que simula una partida contra una Inteligencia Artificial. Implementé un 'Bot Estratégico' con algoritmos de decisión para desafiar al usuario. El sistema gestiona la lógica de turnos, validación de reglas y estados del juego en consola.",
       tech: ["C++", "CodeBlocks", "Lógica de Algoritmos"],
       link: "https://github.com/Hanielxlopezcornelis/truco-cpp-game.git", 
-      status: "Finalizado"
+      status: "Finalizado",
     },
     {
       id: 2,
@@ -26,13 +26,13 @@ export const Projects = () => {
         
         <div style={styles.grid}>
           {projects.map((project) => (
-            <div key={project.id} style={styles.card}>
+            <div key={project.id} style={styles.card} className="hover-effect">
               
               <div style={styles.cardHeader}>
                 <h3 style={styles.cardTitle}>{project.title}</h3>
                 <span style={styles.statusBadge}>{project.status}</span>
               </div>
-              
+
               <p style={styles.description}>{project.description}</p>
              
               <div style={styles.techStack}>

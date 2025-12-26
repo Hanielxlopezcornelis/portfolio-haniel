@@ -30,7 +30,7 @@ export const Experience = () => {
         <div style={styles.timeline}>
             {experiences.map((exp) => (
                 <div key={exp.id} style={styles.timelineItem}>
-                    <div style={styles.timelineContent}>
+                    <div style={styles.timelineContent} className="hover-effect">
                         <span style={styles.yearBadge}>{exp.year}</span>
                         <h4 style={styles.cardTitle}>{exp.role}</h4>
                         {exp.subRole && <span style={styles.cardSubtitle}>{exp.subRole}</span>}

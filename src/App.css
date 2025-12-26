@@ -9,7 +9,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -17,12 +16,17 @@ body {
   min-height: 100vh;
   display: block; 
 }
-
 html {
   scroll-behavior: smooth; 
 }
-
 #root {
   width: 100%;
   min-height: 100vh;
+}
+.hover-effect {
+  transition: transform 0.3s ease; 
+}
+.hover-effect:hover {
+  transform: scale(1.03); 
+  z-index: 10; 
 }

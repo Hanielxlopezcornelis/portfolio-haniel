@@ -2,17 +2,17 @@ export const Education = () => {
   const education = [
     {
       id: 1,
-      year: "2023 - En curso",
-      title: "Ingeniería en Informática",
-      institution: "Universidad Nacional de Avellaneda (UNDAV)",
-      desc: "Enfoque: Lógica de programación, Bases de datos y Organización de sistemas."
-    },
-    {
-      id: 2,
       year: "2025 - En curso",
       title: "Licenciatura en Artes Audiovisuales",
       institution: "Universidad Nacional de Avellaneda (UNDAV)",
       desc: "Enfoque: Producción, Gestión de recursos y Comunicación efectiva."
+    },
+    {
+      id: 2,
+      year: "2023 - En curso",
+      title: "Ingeniería en Informática",
+      institution: "Universidad Nacional de Avellaneda (UNDAV)",
+      desc: "Enfoque: Lógica de programación, Bases de datos y Organización de sistemas."
     }
   ];
 
@@ -23,7 +23,7 @@ export const Education = () => {
         {education.map((edu) => (
           <div key={edu.id} style={styles.timelineItem}>
             <div style={styles.timelineDot}></div>
-            <div style={styles.timelineContent}>
+            <div style={styles.timelineContent} className="hover-effect">
               <span style={styles.yearBadge}>{edu.year}</span>
               <h4 style={styles.cardTitle}>{edu.title}</h4>
               <span style={styles.institution}>{edu.institution}</span>

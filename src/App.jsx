@@ -15,19 +15,19 @@ function App() {
           <Header />
         </div>
         <main style={styles.mainContent}>
-          <div id='sobre-mi'>  
+          <div id='sobre-mi' style={styles.sectionWrapper}>  
             <AboutMe />
           </div>
 
-          <div id='experiencia'>
+          <div id='experiencia' style={styles.sectionWrapper}>
             <Experience />
           </div>
 
-          <div id='educacion'>
+          <div id='educacion' style={styles.sectionWrapper}>
             <Education />
           </div>
           
-          <div id='habilidades'>
+          <div id='habilidades' style={styles.sectionWrapper}>
             <Skills />
           </div>
           
@@ -35,7 +35,7 @@ function App() {
             <Projects />
           </div>
 
-          <div id='contacto'>
+          <div id='contacto' >
             <Contact />
           </div>
         </main>
@@ -51,10 +51,16 @@ const styles = {
     color: 'white',
     display: 'flex',
     flexDirection: 'column', 
+    cursor: 'default',
+    userSelect: 'none',      
+    WebkitUserSelect: 'none',
   },
   mainContent: {
     paddingTop: '100px',
     flex: 1, 
+  },
+  sectionWrapper: {
+    scrollMarginTop: '75px' 
   }
 }
 
