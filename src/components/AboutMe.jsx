@@ -15,7 +15,7 @@ export const AboutMe = () => {
         </p>
         
         <div style={styles.buttonContainer}>
-          <a href="/cv-haniel.pdf" download="CV_Haniel_Xuan_Lopez_Cornelis.pdf" rel="noopener noreferrer" style={styles.primaryButton}>Descargar CV</a>
+          <a href="/cv-haniel-xuan-lopez-cornelisl.pdf" download="CV_Haniel_X_Lopez_Cornelis.pdf" rel="noopener noreferrer" style={styles.primaryButton}>Descargar CV</a>
           <a href="#contacto" style={styles.secondaryButton}>Contactar</a>
         </div>
       </div>
