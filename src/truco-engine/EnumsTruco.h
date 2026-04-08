@@ -1,0 +1,7 @@
+#ifndef ENUMSTRUCO_H_INCLUDED
+#define ENUMSTRUCO_H_INCLUDED
+
+enum TipoCartaJugador{ CARTA_1=0, CARTA_2, CARTA_3 };
+enum TipoResultadoManoTruco{EMPATE, GANO_JUGADOR1, GANO_JUGADOR2};
+
+#endif // ENUMSTRUCO_H_INCLUDED
