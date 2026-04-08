@@ -1,4 +1,8 @@
+import React, { useState } from 'react'; 
+import TrucoGame from './TrucoGame'; 
+
 export const Projects = () => {
+  const [showTruco, setShowTruco] = useState(false); 
   
   const projects = [
     {
@@ -41,9 +45,26 @@ export const Projects = () => {
                 ))}
               </div>
 
-              <a href={project.link} target="_blank" rel="noopener noreferrer" style={styles.linkButton}>
-                Ver Código <span>→</span>
-              </a>
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" style={styles.linkButton}>
+                  Ver Código <span>→</span>
+                </a>
+
+                {project.id === 1 && (
+                  <button 
+                    onClick={() => setShowTruco(!showTruco)}
+                    style={styles.playButton}
+                  >
+                    {showTruco ? 'Cerrar Motor' : 'Probar IA (C++)'}
+                  </button>
+                )}
+              </div>
+
+              {project.id === 1 && showTruco && (
+                <div style={{ marginTop: '20px', width: '100%' }}>
+                  <TrucoGame />
+                </div>
+              )}
 
             </div>
           ))}
@@ -52,7 +73,6 @@ export const Projects = () => {
     </section>
   )
 }
-
 
 const styles = {
   projectsSection: {
@@ -142,5 +162,16 @@ const styles = {
     fontWeight: 'bold',
     transition: 'background-color 0.3s',
     alignSelf: 'flex-start', 
+  },
+
+  playButton: {
+    padding: '10px 20px',
+    backgroundColor: '#61dafb',
+    color: '#1a1a1a',
+    border: 'none',
+    borderRadius: '5px',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: '0.3s',
   }
 }
